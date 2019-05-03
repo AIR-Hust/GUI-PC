@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Home_v2.qml</file>
+        <file>robotics_v2.qml</file>
+        <file>picture/home_v2_fix.png</file>
+        <file>picture/IOT_Robot_v2_cuong.png</file>
+        <file>picture_v2.qml</file>
+        <file>picture/picture_v2_cuong.png</file>
+        <file>video_v2.qml</file>
+        <file>picture/video_v2_cuong.png</file>
+        <file>hello_v2.qml</file>
+        <file>picture/hello_v1_cuong.png</file>
+        <file>end_v2.qml</file>
+        <file>picture/end_v2_cuong.png</file>
+        <file>going_v2.qml</file>
+        <file>picture/background.gif</file>
+        <file>picture/giphy.gif</file>
+        <file>picture/Screenshot from 2019-04-19 15-19-22.png</file>
+        <file>picture/pause-08.png</file>
+        <file>picture/home_going.PNG</file>
+        <file>picture/start.png</file>
+    </qresource>
+</RCC>
