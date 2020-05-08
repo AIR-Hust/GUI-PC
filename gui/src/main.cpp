@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<backend>("io.qt.examples.backend", 1, 0, "Backend");
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("/home/tung-robotics/catkin_ws/src/gui_robot/gui/gui_v2_robot/main.qml")));
+    engine.load(QUrl(QStringLiteral("/home/doanhdz/catkin_ws/src/gui_robot_cmc/gui/gui_v2_robot/main.qml")));
 
     return app.exec();
 }

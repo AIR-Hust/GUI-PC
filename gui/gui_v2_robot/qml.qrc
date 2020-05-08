@@ -20,5 +20,7 @@
         <file>picture/pause-08.png</file>
         <file>picture/home_going.PNG</file>
         <file>picture/start.png</file>
+        <file>menu.qml</file>
+        <file>going_v2_point2.qml</file>
     </qresource>
 </RCC>

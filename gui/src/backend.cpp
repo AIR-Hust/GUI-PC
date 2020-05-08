@@ -12,7 +12,10 @@ QString backend::userName()
 {
     return m_userName;
 }
+void backend::goalChanged (QString &goal)
+{
 
+}
 void backend::setUserName(const QString &userName)
 {
     /*if (userName == m_userName)
@@ -76,6 +79,7 @@ void backend::setGoal(const QString &goal)
     ros::spinOnce();
     ros::spinOnce();
     ros::spinOnce();
+
 
     loop_rate.sleep();
     loop_rate.sleep();

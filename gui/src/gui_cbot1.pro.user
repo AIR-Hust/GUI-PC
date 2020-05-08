@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.5.1, 2019-05-02T18:19:31. -->
+<!-- Written by QtCreator 3.5.1, 2020-03-20T17:02:30. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
-  <value type="QByteArray">{50cb8b5a-5f22-4f2d-89d8-11d05b47499e}</value>
+  <value type="QByteArray">{18efb35a-8e81-406b-b5f1-f3a377acbad9}</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -60,12 +60,12 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{3aa06943-d7af-4d27-bc71-82142266219b}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{6dc095ca-1cae-4d9b-8249-0577dbca35b0}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/tung-robotics/catkin_ws/src/gui/src/Error in &quot; Util.asciify(&quot;build-gui_cbot1-Desktop-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0x1eba060) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/doanhdz/catkin_ws/src/gui_robot_cmc/gui/build-gui_cbot1-Desktop-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -126,7 +126,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/tung-robotics/catkin_ws/src/gui/src/Error in &quot; Util.asciify(&quot;build-gui_cbot1-Desktop-Release&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0x1eba060) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/doanhdz/catkin_ws/src/gui_robot_cmc/gui/build-gui_cbot1-Desktop-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -239,8 +239,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">gui_cbot1</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">gui_cbot12</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/tung-robotics/catkin_ws/src/gui_robot/gui/src/gui_cbot1.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/doanhdz/catkin_ws/src/gui_robot_cmc/gui/src/gui_cbot1.pro</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">gui_cbot1.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>

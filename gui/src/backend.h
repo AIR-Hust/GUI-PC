@@ -30,6 +30,8 @@ private:
     QString m_userName;
 
 public slots:
+    void receiveGoal();
+
 };
 
 #endif // BACKEND_H

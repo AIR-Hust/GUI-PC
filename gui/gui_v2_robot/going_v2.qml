@@ -1,7 +1,10 @@
 import QtQuick 2.0
-
 Item {
-    AnimatedImage { id: background; width: 1024; height: 600; source: "picture/background.gif"
+
+    width: 1024
+    height: 600
+    visible: true
+    AnimatedImage { id: background; x: 0; y: 0; width: 1024; height: 600; source: "picture/background.gif"
 
         MouseArea {
             id: mouseArea_home
@@ -35,12 +38,27 @@ Item {
             }
 
             else
-                {
+            {
                 giphy.paused = false
                 background.paused = false
             }
 
         }
+    }
+
+    Image {
+        id: image_go_to_point2
+        x: 703
+        y: 466
+        width: 100
+        height: 100
+        source: "picture/start.png"
+        MouseArea{
+
+            anchors.fill: image_go_to_point2
+            onClicked: Loader.source="going_v2_point2.qml"
+        }
+
     }}
 
 
@@ -61,6 +79,7 @@ Item {
             y: 500
             width: 100
             height: 100
+            sourceSize.width: 0
             source: "picture/home_going.PNG"
         }
     }
