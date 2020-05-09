@@ -12,10 +12,10 @@ QString backend::userName()
 {
     return m_userName;
 }
-/*void backend::goalChanged (QString &goal)
-{
+//void backend::goalChanged ()
+//{
 
-}*/
+//}
 void backend::setUserName(const QString &userName)
 {
     /*if (userName == m_userName)

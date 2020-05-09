@@ -19,11 +19,19 @@ $ catkin_make
 *Chạy mô phỏng*:
 
 `$ roslaunch turtlebot_gazebo turtlebot_world.launch`
+`$ roslaunch turtlebot_gazebo amcl_demo.launch`
 
 *Chạy trên robot thực tế*:
 
 `$ roslaunch robot full_amcl.launch`
 
 ## B2: Chạy GUI
+
+
+```
+$ cd GUI-robot/gui/scripts
+$ python goto.py
+```
+
 
 `$ rosrun gui node_name`
