@@ -52,7 +52,7 @@ class GoToPose():
             rospy.loginfo("Go to (%s, %s) pose", pos[i]['x'], pos[i]['y'])
             self.move_base.send_goal(goal)
             success = self.move_base.wait_for_result(rospy.Duration(60))
-            playsound('/home/doanhdz/helloworld/turtlebot/demo.mp3')
+            playsound('name.mp3')
             state = self.move_base.get_state()
             result = False
             if success and state == GoalStatus.SUCCEEDED:
