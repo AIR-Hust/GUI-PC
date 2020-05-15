@@ -23,6 +23,14 @@ Item {
         height: 100
         source: "picture/pause-08.png"
     }
+    AnimatedImage {
+        id: image3
+        x: 435
+        y: 93
+        width: 154
+        height: 210
+        source: "picture/giphy (copy).gif"
+    }
 
     MouseArea {
         id: mouseArea_pause
@@ -59,13 +67,13 @@ Item {
             onClicked: Loader.source="going_v2_point2.qml"
         }
 
-    }}
+    }
+
+    }
 
 
-    AnimatedImage { id: giphy; x: 395; y: 41; width: 239; height: 292; source: "picture/giphy.gif"}
-
-        Text {
-            id: text1
+    Text {
+        id: text1
             x: 432
             y: 394
             color: "#ffffff"

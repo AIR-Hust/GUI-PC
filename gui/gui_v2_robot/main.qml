@@ -1,6 +1,6 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
-import io.qt.examples.backend 1.0
+//import io.qt.examples.backend 1.0
 
 ApplicationWindow {
     //id:root
@@ -10,10 +10,10 @@ ApplicationWindow {
 
     title: qsTr("Hello World")
 
-     Backend{
-    id: backend
+     //Backend{
+    //id: backend
 
-    }
+    //}
     signal send()
     onSend:backend.goal="a"
     Image {
@@ -109,6 +109,9 @@ ApplicationWindow {
             y: 0
             width: 69
             height: 70
+            onClicked: {
+
+            }
         }
 
         MouseArea {
@@ -117,20 +120,6 @@ ApplicationWindow {
             y: 0
             width: 69
             height: 65
-        }
-
-        TextInput {
-            id: textInput1
-            x: 0
-            y: 69
-            width: 69
-            height: 26
-            color: "#483094"
-            text: qsTr("Menu")
-            font.bold: true
-            font.family: "Times New Roman"
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 20
         }
 //        MouseArea{
 //            id:load_menu
@@ -152,10 +141,47 @@ ApplicationWindow {
         x: 0
         y: 0
         anchors.rightMargin: 0
-        anchors.bottomMargin: 0
+        anchors.bottomMargin: 7
         anchors.leftMargin: 0
-        anchors.topMargin: 0
+        anchors.topMargin: -7
         anchors.fill: parent
+
+        Button {
+            id: button1
+            x: 14
+            y: 139
+            text: qsTr("map")
+            onClicked:{
+                Qt.quit()
+
+            }
+        }
+
+        Button {
+            id: button2
+            x: 14
+            y: 287
+            text: qsTr("about")
+        }
+
+        Button {
+            id: button3
+            x: 918
+            y: 558
+            text: qsTr("weather")
+            onClicked: {
+                loader.source = "check_weather.qml"
+            }
+        }
+    }
+
+    Rectangle {
+        id: rectangle1
+        x: -236
+        y: -7
+        width: 200
+        height: 200
+        color: "#ffffff"
     }
 
 
