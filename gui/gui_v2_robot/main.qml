@@ -1,6 +1,6 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
-//import io.qt.examples.backend 1.0
+import io.qt.examples.backend 1.0
 
 ApplicationWindow {
     //id:root
@@ -10,10 +10,10 @@ ApplicationWindow {
 
     title: qsTr("Hello World")
 
-     //Backend{
-    //id: backend
+     Backend{
+    id: backend
 
-    //}
+    }
     signal send()
     onSend:backend.goal="a"
     Image {
