@@ -5,8 +5,6 @@
 #include <QString>
 #include <stdio.h>
 
-#include "moving.h"
-
 class backend : public QObject
 {
     Q_OBJECT

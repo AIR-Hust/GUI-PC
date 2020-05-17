@@ -23,7 +23,7 @@ ApplicationWindow {
         y: 0
         width: 1024
         height: 600
-        source: "picture/home_v2_fix.png"
+        source: "picture/robot-02.png"
 
         Timer{
             interval: 500
