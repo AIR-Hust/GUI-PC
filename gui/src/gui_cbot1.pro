@@ -1,10 +1,11 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets network gui core
 
 SOURCES += main.cpp \
     backend.cpp \
-    moving.cpp
+    moving.cpp \
+    weather.cpp
 
 RESOURCES += qml.qrc
 
@@ -16,7 +17,8 @@ include(deployment.pri)
 
 HEADERS += \
     backend.h \
-    moving.h
+    moving.h \
+    weather.h
 
 DISTFILES += \
     ../gui_v2_robot/main.qml

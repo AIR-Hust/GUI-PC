@@ -1,5 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
+import GUI.APP.ROBOTICS 1.0
+
 Item {
     visible: true
     width: 1024
@@ -24,10 +26,10 @@ Item {
     property string text_TTS
 
 
-//    Weather {
-//        id: weather
-//         weather_status: "0"
-//    }
+    Weather {
+        id: weather
+         weather_status: "0"
+    }
 
 
     Timer {
@@ -35,52 +37,53 @@ Item {
         interval: time_update
         running: true
         repeat: true
-//        onTriggered: {
-//            // cập nhật thời tiết mỗi lần timer reset
-//            if (weather.weather_status == "1")
-//                weather.weather_status = "0";
-//            if (weather.weather_status == "0")
-//                weather.weather_status = "1";
+        onTriggered: {
+            // cập nhật thời tiết mỗi lần timer reset
+            if (weather.weather_status == "1")
+                weather.weather_status = "0";
+            if (weather.weather_status == "0")
+                weather.weather_status = "1";
 
-//            // cập nhật thời tiết vào các biến trong qml
-//            humidity = weather.humidity;
-//            temperature = weather.temperature;
-//            description = weather.description;
-//            //thay đổi đường dẫn link_gif
-//            if ((parseInt(description) >= 200) && (parseInt(description) <= 232))
-//                link_gif = "picture/rainy.png"; // Thunderstorm
-//                console.log(description);
-//            if ((parseInt(description) >= 300) && (parseInt(description) <= 321))
-//                link_gif = "picture/rainy.png"; // Drizzle
-//                console.log(description);
-//            if ((parseInt(description) >= 500) && (parseInt(description) <= 504))
-//                link_gif = "picture/rainy.png"; // Rain
-//                console.log(description);
-//            if ((parseInt(description) >= 511) && (parseInt(description) <= 531))
-//                link_gif = "picture/rainy.png"; // Shower rain
-//                console.log(description);
-//            if ((parseInt(description) >= 600) && (parseInt(description) <= 622))
-//                link_gif = "picture/rainy.png"; // Snow
-//                console.log(description);
-//            if ((parseInt(description) >= 700) && (parseInt(description) <= 799))
-//                link_gif = "picture/cloudy.png"; // Atmosphere
-//                console.log(description);
-//            if (description == "800")
-//                link_gif = "picture/sunny.png"; // Clear sky
-//                console.log(description);
-//            if (description == "801")
-//                link_gif = "picture/sunny.png"; // Few clouds
-//                console.log(description);
-//            if (description == "802")
-//                link_gif = "picture/cloudy.png"; // Scattered clouds
-//                console.log(description);
-//            if (description >= "803")
-//                link_gif = "picture/cloudy.png"; // Broken clouds
-//                console.log(description);
-//        }
+            // cập nhật thời tiết vào các biến trong qml
+            humidity = weather.humidity;
+            temperature = weather.temperature;
+            description = weather.description;
+            //thay đổi đường dẫn link_gif
+            if ((parseInt(description) >= 200) && (parseInt(description) <= 232))
+                link_gif = "picture/rainy.png"; // Thunderstorm
+                console.log(description);
+            if ((parseInt(description) >= 300) && (parseInt(description) <= 321))
+                link_gif = "picture/rainy.png"; // Drizzle
+                console.log(description);
+            if ((parseInt(description) >= 500) && (parseInt(description) <= 504))
+                link_gif = "picture/rainy.png"; // Rain
+                console.log(description);
+            if ((parseInt(description) >= 511) && (parseInt(description) <= 531))
+                link_gif = "picture/rainy.png"; // Shower rain
+                console.log(description);
+            if ((parseInt(description) >= 600) && (parseInt(description) <= 622))
+                link_gif = "picture/rainy.png"; // Snow
+                console.log(description);
+            if ((parseInt(description) >= 700) && (parseInt(description) <= 799))
+                link_gif = "picture/cloudy.png"; // Atmosphere
+                console.log(description);
+            if (description == "800")
+                link_gif = "picture/sunny.png"; // Clear sky
+                console.log(description);
+            if (description == "801")
+                link_gif = "picture/sunny.png"; // Few clouds
+                console.log(description);
+            if (description == "802")
+                link_gif = "picture/cloudy.png"; // Scattered clouds
+                console.log(description);
+            if (description >= "803")
+                link_gif = "picture/cloudy.png"; // Broken clouds
+                console.log(description);
+        }
 
 
     }
+
 
     Timer {
         id: time_rate
