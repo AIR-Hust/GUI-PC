@@ -8,6 +8,7 @@
 
 #include "backend.h"
 #include "moving.h"
+#include "weather.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,9 +17,10 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     qmlRegisterType<backend>("io.qt.examples.backend", 1, 0, "Backend");
+    qmlRegisterType<weather>("GUI.APP.ROBOTICS", 1, 0, "Weather");
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("/home/doanhdz/catkin_ws/src/GUI-PC/gui/gui_v2_robot/main.qml")));
+    engine.load(QUrl(QStringLiteral("/home/tungngo/catkin_ws/src/GUI-robot/gui/gui_v2_robot/main.qml")));
 
     return app.exec();
 }

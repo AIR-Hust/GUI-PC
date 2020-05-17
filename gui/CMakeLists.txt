@@ -17,7 +17,7 @@ set(QT_VERSION_REQ "5.3")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
-#set(CMAKE_PREFIX_PATH "/usr/include/x86_64-linux-gnu/qt5")
+set(CMAKE_PREFIX_PATH "/usr/include/x86_64-linux-gnu/qt5")
 
 
 find_package(Qt5 COMPONENTS Core Gui Qml Test Quick Widgets REQUIRED)
@@ -171,6 +171,7 @@ set (HEADER_FILES
     ${QT_FILES}/QtWidgets/qapplication.h
     ${QT_FILES}/QtGui/qicon.h
     src/backend.h
+    src/weather.h
 )
 
 ## Declare a C++ library
@@ -192,7 +193,7 @@ set (HEADER_FILES
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/gui_node.cpp)
-add_executable(node_name ${RESOURCES} src/main.cpp src/backend.h src/backend.cpp src/moving.h src/moving.cpp)
+add_executable(node_name ${RESOURCES} src/main.cpp src/backend.h src/backend.cpp src/moving.h src/moving.cpp src/weather.h src/weather.cpp)
 #add_executable(node_name src/main.cpp ${HEADER_FILES})
 target_include_directories(node_name PRIVATE gui)
 

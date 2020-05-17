@@ -1,6 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 import io.qt.examples.backend 1.0
+import GUI.APP.ROBOTICS 1.0
 
 ApplicationWindow {
     //id:root
