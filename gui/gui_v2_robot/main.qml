@@ -88,7 +88,7 @@ ApplicationWindow {
             onClicked:
             {
 
-                //backend.goal = "a"
+                backend.goal = "a"
                 loader.source = "going_v2.qml"
 
             }}
