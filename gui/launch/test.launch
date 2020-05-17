@@ -1,0 +1,20 @@
+<launch>
+  <!-- Turtlebot -->
+    <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>
+  <!-- rplidarnode -->
+    <include file="$(find rplidar_ros)/launch/rplidar.launch">
+        <!--arg name="frame_id" value="laser_frame"/-->
+    </include>
+  <!-- amcl without 3D sensor-->
+    <!--include file="$(find robot)/launch/amcl_no3Dsensor.launch">
+        <arg name="map_file" default="/home/cist/maps/cistmar12.yaml"/>
+    </include-->
+  <!-- Transform -->
+    <node pkg="tf" type="static_transform_publisher" name="laser_frame_transform" args="0 0 0.24 -1.57 0 0 base_link laser_frame 50"/>
+   <!--  <node pkg="tf" type="static_transform_publisher" name="map_odom_transform" args="0 0 0 0 0 0 map odom  50" /> -->
+    <include file="$(find kobuki_auto_docking)/launch/minimal.launch"/>
+    <node pkg="cmc_robot_daily_work" name="follow_the_route" type="follow_the_route.py"/>
+    <node pkg="cmc_robot_daily_work" name="gui_daily_work" type="gui_daily_work" />
+    <node pkg="cmc_robot_daily_work" name="get_weather" type="ros_weather.py" />
+    <node pkg="gui" name="node_name" type="node_name"/>
+</launch>

@@ -29,8 +29,8 @@ signals:
 private:
     QString m_userName;
 
-public slots:
-    void receiveGoal();
+// public slots:
+//     void receiveGoal();
 
 };
 

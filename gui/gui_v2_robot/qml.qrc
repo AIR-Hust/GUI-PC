@@ -22,5 +22,19 @@
         <file>picture/start.png</file>
         <file>menu.qml</file>
         <file>going_v2_point2.qml</file>
+        <file>picture/giphy (copy).gif</file>
+        <file>check_weather.qml</file>
+        <file>picture/very_bad.png</file>
+        <file>picture/very_good.png</file>
+        <file>picture/bad.png</file>
+        <file>picture/cloud2.gif</file>
+        <file>picture/cloudy.jpeg</file>
+        <file>picture/cloudy.png</file>
+        <file>picture/sunny.png</file>
+        <file>picture/rainy.png</file>
+        <file>picture/lg.cloudy-sky-preloader.gif</file>
+        <file>picture/Weather_SunAbstract.png</file>
+        <file>picture/temperature-weather-thermometer-512.png</file>
+        <file>picture/good.png</file>
     </qresource>
 </RCC>

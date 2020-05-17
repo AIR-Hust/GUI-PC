@@ -76,6 +76,7 @@ void backend::setGoal(const QString &goal)
     ROS_INFO("asdf");
     goal_pub.publish(mg);
 
+
     ros::spinOnce();
     ros::spinOnce();
     ros::spinOnce();

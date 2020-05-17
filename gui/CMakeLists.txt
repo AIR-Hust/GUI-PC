@@ -17,7 +17,7 @@ set(QT_VERSION_REQ "5.3")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
-set(CMAKE_PREFIX_PATH "/usr/include/x86_64-linux-gnu/qt5")
+#set(CMAKE_PREFIX_PATH "/usr/include/x86_64-linux-gnu/qt5")
 
 
 find_package(Qt5 COMPONENTS Core Gui Qml Test Quick Widgets REQUIRED)
