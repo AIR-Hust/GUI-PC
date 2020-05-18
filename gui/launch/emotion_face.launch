@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- Respeaker_ros-->
+    <include file="$(find respeaker_ros)/launch/vn-respeaker.launch"/>
+
+  <!-- Transform -->
+    <node pkg="cmc_robot_daily_work" name="get_weather" type="ros_weather.py" />
+    <node pkg="gui" name="node_name" type="node_name"/>
+</launch>

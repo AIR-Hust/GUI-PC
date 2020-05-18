@@ -29,7 +29,7 @@ Item {
 
     Weather {
         id: weather
-        weather_status: "0"
+
     }
 
     Speech {
@@ -45,14 +45,23 @@ Item {
         onTriggered: {
             // cập nhật thời tiết mỗi lần timer reset
             if (weather.weather_status == "1")
+            {
+                weather.weather_status = "0";
+            }
+            else{
+                weather.weather_status = "1";
+            }
+
+/*
+            if (weather.weather_status == "1")
                 weather.weather_status = "0";
             if (weather.weather_status == "0")
                 weather.weather_status = "1";
+*/
 
             // cập nhật thời tiết vào các biến trong qml
             humidity = weather.humidity;
-            temperature = speech.speech_recog;
-//            temperature = weather.temperature;
+            temperature = weather.temperature;
             description = weather.description;
             //thay đổi đường dẫn link_gif
             if ((parseInt(description) >= 200) && (parseInt(description) <= 232))
@@ -99,6 +108,7 @@ Item {
         onTriggered: {
             state_rate = false;
             back_ground = false;
+            loader.source = "main.qml"
         }
     }
 
@@ -416,6 +426,10 @@ Item {
             }
         }
 
+        Image {
+            id: back_icon
+            source: "picture/home_going.PNG"
+        }
         MouseArea {
             id: back_button
             x: 210
@@ -423,7 +437,7 @@ Item {
             width: 90
             height: 100
             onClicked:{
-
+                loader.source = "main.qml"
             }
         }
 

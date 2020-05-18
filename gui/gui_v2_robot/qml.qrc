@@ -37,5 +37,6 @@
         <file>picture/temperature-weather-thermometer-512.png</file>
         <file>picture/good.png</file>
         <file>speech.qml</file>
+        <file>picture/emotion_face.gif</file>
     </qresource>
 </RCC>
