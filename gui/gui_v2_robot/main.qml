@@ -33,7 +33,7 @@ ApplicationWindow {
         source: "picture/robot-02.png"
 
         Timer{
-            interval: 500
+            interval: 1
             repeat: true
             running: true
             onTriggered: {
@@ -46,7 +46,10 @@ ApplicationWindow {
                 {
                     speech.speech_recog = "1"
                 }
-                if (speech.text == "Ab"){
+                // th\u1EDDi ti\u1EBFt
+                if (speech.text == "th\u1EDDi ti\u1EBFt")
+//                if (speech.text == "thời tiết")
+                {
                 loader.source = "check_weather.qml"
                 }
             }
