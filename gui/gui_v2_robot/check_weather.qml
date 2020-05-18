@@ -1,6 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
 import GUI.APP.ROBOTICS 1.0
+import speech.recognition 1.0
+
 
 Item {
     visible: true
@@ -25,10 +27,13 @@ Item {
     property string description
     property string text_TTS
 
-
     Weather {
         id: weather
-         weather_status: "0"
+        weather_status: "0"
+    }
+
+    Speech {
+        id: speech
     }
 
 
@@ -46,7 +51,8 @@ Item {
 
             // cập nhật thời tiết vào các biến trong qml
             humidity = weather.humidity;
-            temperature = weather.temperature;
+            temperature = speech.speech_recog;
+//            temperature = weather.temperature;
             description = weather.description;
             //thay đổi đường dẫn link_gif
             if ((parseInt(description) >= 200) && (parseInt(description) <= 232))

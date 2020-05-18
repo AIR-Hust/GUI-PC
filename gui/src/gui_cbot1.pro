@@ -5,7 +5,8 @@ QT += qml quick widgets network gui core
 SOURCES += main.cpp \
     backend.cpp \
     moving.cpp \
-    weather.cpp
+    weather.cpp \
+    speech_recognition.cpp
 
 RESOURCES += qml.qrc
 
@@ -18,7 +19,8 @@ include(deployment.pri)
 HEADERS += \
     backend.h \
     moving.h \
-    weather.h
+    weather.h \
+    speech_recognition.h
 
 DISTFILES += \
     ../gui_v2_robot/main.qml
