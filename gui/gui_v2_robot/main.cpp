@@ -5,12 +5,12 @@
 #include <string.h>
 #include <string>
 #include <QApplication>
-//#include "ros/ros.h"
-#include <QtQml>
 
-#include "weather.h"
+#include <QtQml>
+#include <weather.h>
 int main(int argc, char *argv[])
 {
+
     QDir dir;
     string current_dir = dir.homePath().toUtf8().constData();
     current_dir += "/catkin_ws/src/GUI-PC/gui/gui_v2_robot/main.qml";

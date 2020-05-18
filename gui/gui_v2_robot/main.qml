@@ -1,6 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 import io.qt.examples.backend 1.0
+import GUI.APP.ROBOTICS 1.0
 
 ApplicationWindow {
     //id:root
@@ -10,12 +11,21 @@ ApplicationWindow {
 
     title: qsTr("Hello World")
 
+
+    Weather{
+    id:weather
+
+    }
+
      Backend{
     id: backend
 
     }
     signal send()
     onSend:backend.goal="a"
+    //onSend:weather.weather_status="0"
+
+
     Image {
         id: image1
         x: 0
@@ -88,7 +98,7 @@ ApplicationWindow {
             onClicked:
             {
 
-                //backend.goal = "a"
+                backend.goal = "a"
                 loader.source = "going_v2.qml"
 
             }}
@@ -146,33 +156,35 @@ ApplicationWindow {
         anchors.topMargin: -7
         anchors.fill: parent
 
-        Button {
-            id: button1
-            x: 14
-            y: 139
-            text: qsTr("map")
+        Button{
+            id:openMenu
+            text:"Menu"
+
             onClicked:{
-                Qt.quit()
-
+                menu.popup()
             }
         }
+        Menu{
+            id:menu
 
-        Button {
-            id: button2
-            x: 14
-            y: 287
-            text: qsTr("about")
-        }
-
-        Button {
-            id: button3
-            x: 918
-            y: 558
-            text: qsTr("weather")
-            onClicked: {
-                loader.source = "check_weather.qml"
+            MenuItem{
+                text:"check the weather"
+                onTriggered: {
+                    loader.source = "check_weather.qml"
+                }
             }
-        }
+            MenuItem{
+                text:"Map"
+            }
+            MenuItem{
+                text:"About"
+            }
+
+    }
+    Label{
+        anchors.centerIn: parent
+        text:'Please click the menu to choose your options'
+        font.pixelSize: 30
     }
 
     Rectangle {
@@ -184,7 +196,17 @@ ApplicationWindow {
         color: "#ffffff"
     }
 
+    Button {
+        id: button1
+        x: 46
+        y: 202
+        text: qsTr("detection")
+        onClicked:{
+
+        }
+    }
 
 
-}
+
+}}
 

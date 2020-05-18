@@ -4,7 +4,9 @@ QT += qml quick widgets
 
 SOURCES += main.cpp \
     backend.cpp \
-    moving.cpp
+    moving.cpp \
+    weather.cpp \
+    images_sub.cpp
 
 RESOURCES += qml.qrc
 
@@ -16,7 +18,9 @@ include(deployment.pri)
 
 HEADERS += \
     backend.h \
-    moving.h
+    moving.h \
+    weather.h \
+    images_sub.h
 
 DISTFILES += \
     ../gui_v2_robot/main.qml
