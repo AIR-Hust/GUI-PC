@@ -1,13 +1,10 @@
 #include "speech_recognition.h"
 
 // Text callback
-void speech_recognition::textCallBack(const speech_recognition_msgs::SpeechRecognitionCandidates::ConstPtr &msg)
+void speech_recognition::textCallBack(const speech_recognition_msgs::SpeechRecognitionCandidates::ConstPtr &text_s)
 {
-//    SpeechRecognitionCandidates text;
-//    string speech_recog;
-    ROS_INFO("I heard: [%s]", msg->transcript[0].c_str());
-//    text = msg->transcript.c_str(); // Read data from topic
-    m_speech_recog = QString::fromStdString(msg->transcript[0].c_str()); //(text); // Save data to speech private attribute
+    ROS_INFO("I heard: [%s]",text_s->transcript[0].c_str());
+    m_text = QString::fromStdString((text_s->transcript[0].c_str()));
 }
 
 speech_recognition::speech_recognition(QObject *parent): QObject(parent)
@@ -31,12 +28,13 @@ void speech_recognition::setSpeech_recog(const QString speech_recog)
 {
     //Subscribe to ROS topics to get text information
     ros::NodeHandle m;
-    ros::Rate loop_rate(2); // loop rate in Hz
+    ros::Rate loop_rate(1.5); // loop rate in Hz
     ROS_INFO("A");
     ros::Subscriber speech = m.subscribe("/speech_to_text", 2, &speech_recognition::textCallBack, this);
     ROS_INFO("B");
 
     loop_rate.sleep(); // Wait for topic
+    ros::spinOnce(); // Call callback function once
     ros::spinOnce(); // Call callback function once
     if (m_speech_recog == speech_recog)
         return;

@@ -31,8 +31,9 @@ public:
 
 //    string text_s;
     std_msgs::String msg;
+    speech_recognition_msgs::SpeechRecognitionCandidates text_s;
 
-    void textCallBack(const speech_recognition_msgs::SpeechRecognitionCandidates::ConstPtr &msg);
+    void textCallBack(const speech_recognition_msgs::SpeechRecognitionCandidates::ConstPtr &text_s);
 
 signals:
     void ReceivedSpeech();

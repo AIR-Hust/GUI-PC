@@ -36,5 +36,6 @@
         <file>picture/Weather_SunAbstract.png</file>
         <file>picture/temperature-weather-thermometer-512.png</file>
         <file>picture/good.png</file>
+        <file>speech.qml</file>
     </qresource>
 </RCC>

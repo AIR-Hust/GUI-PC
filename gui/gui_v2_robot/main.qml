@@ -16,6 +16,12 @@ ApplicationWindow {
     id: backend
 
     }
+
+    Speech{
+        id: speech
+
+    }
+
     signal send()
     onSend:backend.goal="a"
     Image {
@@ -31,7 +37,18 @@ ApplicationWindow {
             repeat: true
             running: true
             onTriggered: {
-                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+//                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+                if (speech.speech_recog == "1")
+                {
+                    speech.speech_recog = "0";
+                }
+                else
+                {
+                    speech.speech_recog = "1"
+                }
+                if (speech.text == "Ab"){
+                loader.source = "check_weather.qml"
+                }
             }
         }
         Text{
@@ -173,6 +190,16 @@ ApplicationWindow {
             text: qsTr("weather")
             onClicked: {
                 loader.source = "check_weather.qml"
+            }
+        }
+
+        Button {
+            id: button4
+            x: 500
+            y: 200
+            text: qsTr("speech_to_text")
+            onClicked: {
+                loader.source = "speech.qml"
             }
         }
     }

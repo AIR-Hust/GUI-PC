@@ -25,7 +25,7 @@ Item {
     property string  temperature
     property string  humidity
     property string description
-    property string text_TTS
+//    property string text_TTS
 
     Weather {
         id: weather
