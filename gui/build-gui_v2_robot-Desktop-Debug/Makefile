@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = gui_v2_robot1.0.0
-DISTDIR = /home/doanhdz/catkin_ws/src/GUI-PC/gui/build-gui_v2_robot-Desktop-Debug/.tmp/gui_v2_robot1.0.0
+DISTDIR = /home/tungngo/catkin_ws/src/GUI-robot/gui/build-gui_v2_robot-Desktop-Debug/.tmp/gui_v2_robot1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Quick -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGL -lpthread 
@@ -48,11 +48,9 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../gui_v2_robot/main.cpp \
-		../gui_v2_robot/weather.cpp qrc_qml.cpp \
+SOURCES       = ../gui_v2_robot/main.cpp qrc_qml.cpp \
 		moc_weather.cpp
 OBJECTS       = main.o \
-		weather.o \
 		qrc_qml.o \
 		moc_weather.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -105,6 +103,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_script_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_serialport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_svg.pri \
@@ -145,8 +144,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../gui_v2_robot/gui_v2_robot.pro ../gui_v2_robot/weather.h ../gui_v2_robot/main.cpp \
-		../gui_v2_robot/weather.cpp
+		../gui_v2_robot/gui_v2_robot.pro ../src/weather.h ../gui_v2_robot/main.cpp
 QMAKE_TARGET  = gui_v2_robot
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = gui_v2_robot
@@ -227,6 +225,7 @@ Makefile: ../gui_v2_robot/gui_v2_robot.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_script_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_serialport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_svg.pri \
@@ -326,6 +325,7 @@ Makefile: ../gui_v2_robot/gui_v2_robot.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_script_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_serialport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_svg.pri:
@@ -389,8 +389,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../gui_v2_robot/qml.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../gui_v2_robot/weather.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../gui_v2_robot/main.cpp ../gui_v2_robot/weather.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/weather.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../gui_v2_robot/main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -426,6 +426,7 @@ qrc_qml.cpp: ../gui_v2_robot/qml.qrc \
 		../gui_v2_robot/video_v2.qml \
 		../gui_v2_robot/hello_v2.qml \
 		../gui_v2_robot/main.qml \
+		../gui_v2_robot/speech.qml \
 		../gui_v2_robot/picture/lg.cloudy-sky-preloader.gif \
 		../gui_v2_robot/picture/Weather_SunAbstract.png \
 		../gui_v2_robot/picture/background.gif \
@@ -454,8 +455,8 @@ qrc_qml.cpp: ../gui_v2_robot/qml.qrc \
 compiler_moc_header_make_all: moc_weather.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_weather.cpp
-moc_weather.cpp: ../gui_v2_robot/weather.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/doanhdz/catkin_ws/src/GUI-PC/gui/gui_v2_robot -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../gui_v2_robot/weather.h -o moc_weather.cpp
+moc_weather.cpp: ../src/weather.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/tungngo/catkin_ws/src/GUI-robot/gui/gui_v2_robot -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/weather.h -o moc_weather.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -471,11 +472,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean
 
 ####### Compile
 
-main.o: ../gui_v2_robot/main.cpp ../gui_v2_robot/weather.h
+main.o: ../gui_v2_robot/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../gui_v2_robot/main.cpp
-
-weather.o: ../gui_v2_robot/weather.cpp ../gui_v2_robot/weather.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o weather.o ../gui_v2_robot/weather.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp

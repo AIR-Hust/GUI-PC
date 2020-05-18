@@ -1,6 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
 import GUI.APP.ROBOTICS 1.0
+import speech.recognition 1.0
+
 
 Item {
     visible: true
@@ -23,12 +25,15 @@ Item {
     property string  temperature
     property string  humidity
     property string description
-    property string text_TTS
-
+//    property string text_TTS
 
     Weather {
         id: weather
-         weather_status: "0"
+
+    }
+
+    Speech {
+        id: speech
     }
 
 
@@ -40,9 +45,19 @@ Item {
         onTriggered: {
             // cập nhật thời tiết mỗi lần timer reset
             if (weather.weather_status == "1")
+            {
+                weather.weather_status = "0";
+            }
+            else{
+                weather.weather_status = "1";
+            }
+
+/*
+            if (weather.weather_status == "1")
                 weather.weather_status = "0";
             if (weather.weather_status == "0")
                 weather.weather_status = "1";
+*/
 
             // cập nhật thời tiết vào các biến trong qml
             humidity = weather.humidity;
@@ -93,6 +108,7 @@ Item {
         onTriggered: {
             state_rate = false;
             back_ground = false;
+            loader.source = "main.qml"
         }
     }
 
@@ -410,6 +426,10 @@ Item {
             }
         }
 
+        Image {
+            id: back_icon
+            source: "picture/home_going.PNG"
+        }
         MouseArea {
             id: back_button
             x: 210
@@ -417,7 +437,7 @@ Item {
             width: 90
             height: 100
             onClicked:{
-
+                loader.source = "main.qml"
             }
         }
 

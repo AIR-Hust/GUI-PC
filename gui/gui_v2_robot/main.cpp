@@ -5,10 +5,11 @@
 #include <string.h>
 #include <string>
 #include <QApplication>
-//#include "ros/ros.h"
+#include "ros/ros.h"
 #include <QtQml>
 
 #include "weather.h"
+#include "speech_recognition.h"
 int main(int argc, char *argv[])
 {
     QDir dir;
@@ -17,6 +18,8 @@ int main(int argc, char *argv[])
     QString cr_dir = QString::fromStdString(current_dir);
     QApplication app(argc, argv);
     qmlRegisterType<weather>("GUI.APP.ROBOTICS", 1, 0, "Weather");
+    qmlRegisterType<speech_recognition>("speech.recognition", 1, 0, "Speech");
+
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

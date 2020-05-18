@@ -2,6 +2,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 import io.qt.examples.backend 1.0
 import GUI.APP.ROBOTICS 1.0
+import speech.recognition 1.0
 
 ApplicationWindow {
     //id:root
@@ -9,28 +10,45 @@ ApplicationWindow {
     width: 1024
     height: 600
 
-    title: qsTr("Hello World")
+    title: qsTr("AIR-HUST")
 
-     Backend{
-    id: backend
-
+    Backend{
+        id: backend
     }
-    signal send()
-    onSend:backend.goal="a"
-    Image {
+
+    Speech{
+        id: speech
+    }
+
+//    signal send()
+//    onSend: backend.goal="a"
+
+    AnimatedImage {
         id: image1
         x: 0
         y: 0
         width: 1024
         height: 600
-        source: "picture/home_v2_fix.png"
+        source: "picture/emotion_face.gif"
 
         Timer{
-            interval: 500
+            interval: 1
             repeat: true
             running: true
             onTriggered: {
                 time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+                if (speech.speech_recog == "1")
+                {
+                    speech.speech_recog = "0";
+                }
+                else
+                {
+                    speech.speech_recog = "1"
+                }
+                if (speech.text == "th\u1EDDi ti\u1EBFt")
+                {
+                    loader.source = "check_weather.qml"
+                }
             }
         }
         Text{
@@ -41,61 +59,61 @@ ApplicationWindow {
             //anchors.centerIn: parent
         }
 
+/*
+//        MouseArea {
+//            id: mouseArea_home
+//            x: 180
+//            y: 72
+//            width: 144
+//            height: 130
+//        }
 
-        MouseArea {
-            id: mouseArea_home
-            x: 180
-            y: 72
-            width: 144
-            height: 130
-        }
+//        MouseArea {
+//            id: mouseArea_robot
+//            x: 696
+//            y: 328
+//            width: 160
+//            height: 205
+//            onClicked: loader.source = "robotics_v2.qml"
+//        }
 
-        MouseArea {
-            id: mouseArea_robot
-            x: 696
-            y: 328
-            width: 160
-            height: 205
-            onClicked: loader.source = "robotics_v2.qml"
-        }
+//        MouseArea {
+//            id: mouseArea_video
+//            x: 49
+//            y: 414
+//            width: 409
+//            height: 88
+//            onClicked: loader.source = "video_v2.qml"
+//        }
 
-        MouseArea {
-            id: mouseArea_video
-            x: 49
-            y: 414
-            width: 409
-            height: 88
-            onClicked: loader.source = "video_v2.qml"
-        }
+//        MouseArea {
+//            id: mouseArea_picture
+//            x: 618
+//            y: 94
+//            width: 340
+//            height: 119
+//            onClicked: loader.source = "picture_v2.qml"
+//        }
 
-        MouseArea {
-            id: mouseArea_picture
-            x: 618
-            y: 94
-            width: 340
-            height: 119
-            onClicked: loader.source = "picture_v2.qml"
-        }
+//        MouseArea {
+//            id: mouseArea_start
+//            x: 439
+//            y: 234
+//            width: 146
+//            height: 129
 
-        MouseArea {
-            id: mouseArea_start
-            x: 439
-            y: 234
-            width: 146
-            height: 129
+//            //onClicked: loader.source = "going_v2.qml"
 
-            //onClicked: loader.source = "going_v2.qml"
+//            onClicked:
+//            {
 
-            onClicked:
-            {
+//                backend.goal = "a"
+//                loader.source = "going_v2.qml"
 
-                backend.goal = "a"
-                loader.source = "going_v2.qml"
-
-            }}
-        Component.onCompleted:
-            mouseArea_start.clicked.connect(send)
-
+//            }}
+//        Component.onCompleted:
+//            mouseArea_start.clicked.connect(send)
+*/
         MouseArea {
             id: mouseArea_help
             x: 960
@@ -146,34 +164,45 @@ ApplicationWindow {
         anchors.leftMargin: 0
         anchors.topMargin: -7
         anchors.fill: parent
+/*
+//        Button {
+//            id: button1
+//            x: 14
+//            y: 139
+//            text: qsTr("map")
+//            onClicked:{
+//                Qt.quit()
 
-        Button {
-            id: button1
-            x: 14
-            y: 139
-            text: qsTr("map")
-            onClicked:{
-                Qt.quit()
+//            }
+//        }
 
-            }
-        }
+//        Button {
+//            id: button2
+//            x: 14
+//            y: 287
+//            text: qsTr("about")
+//        }
 
-        Button {
-            id: button2
-            x: 14
-            y: 287
-            text: qsTr("about")
-        }
+//        MouseArea {s
+//            id: button3
+//            x: 918
+//            y: 558
+////            text: qsTr("weather")
+//            onClicked: {
+//                loader.source = "check_weather.qml"
+//            }
+//        }
 
-        Button {
-            id: button3
-            x: 918
-            y: 558
-            text: qsTr("weather")
-            onClicked: {
-                loader.source = "check_weather.qml"
-            }
-        }
+//        Button {
+//            id: button4
+//            x: 500
+//            y: 200
+//            text: qsTr("speech_to_text")
+//            onClicked: {
+//                loader.source = "speech.qml"
+//            }
+//        }
+*/
     }
 
     Rectangle {
@@ -184,8 +213,6 @@ ApplicationWindow {
         height: 200
         color: "#ffffff"
     }
-
-
 
 }
 

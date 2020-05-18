@@ -193,7 +193,7 @@ set (HEADER_FILES
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/gui_node.cpp)
-add_executable(node_name ${RESOURCES} src/main.cpp src/backend.h src/backend.cpp src/moving.h src/moving.cpp src/weather.h src/weather.cpp)
+add_executable(node_name ${RESOURCES} src/main.cpp src/backend.h src/backend.cpp src/weather.h src/weather.cpp src/speech_recognition.h src/speech_recognition.cpp)
 #add_executable(node_name src/main.cpp ${HEADER_FILES})
 target_include_directories(node_name PRIVATE gui)
 
