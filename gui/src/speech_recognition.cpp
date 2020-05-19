@@ -4,7 +4,9 @@
 void speech_recognition::textCallBack(const speech_recognition_msgs::SpeechRecognitionCandidates::ConstPtr &text_s)
 {
     ROS_INFO("I heard: [%s]",text_s->transcript[0].c_str());
-    m_text = QString::fromStdString((text_s->transcript[0].c_str()));
+    m_text = QString::fromStdString((text_s->transcript[0].c_str())).toUtf8();
+//    m_text = m_text.toUtf8();
+//    ROS_INFO(m_text);
 }
 
 speech_recognition::speech_recognition(QObject *parent): QObject(parent)

@@ -36,7 +36,8 @@ ApplicationWindow {
             repeat: true
             running: true
             onTriggered: {
-                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+//                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+                time.text = speech.text
                 if (speech.speech_recog == "1")
                 {
                     speech.speech_recog = "0";
@@ -58,6 +59,7 @@ ApplicationWindow {
             x: 900
             y: 0
             color: "#bf2929"
+//            text: speech.text
             //anchors.centerIn: parent
         }
 
