@@ -18,11 +18,8 @@ void backend::setGoal(const QString &goal)
     ros::NodeHandle m;
     ros::Publisher goal_pub = m.advertise<std_msgs::String>("/receive_goal", 1000);
     ros::Rate loop_rate(1);
-    //int count = 0;
     std_msgs::String mg;
     std::string name_point = goal.toStdString();
-    //std::stringstream ss;
-    //ss << "hello world " << count;
     mg.data = name_point;
 
     loop_rate.sleep();
@@ -40,7 +37,5 @@ void backend::setGoal(const QString &goal)
 
     loop_rate.sleep();
     loop_rate.sleep();
-   // cout << 1;
-    //++count;
     emit goalChanged();
 }

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QDir>
 #include <string>
 #include <stdio.h>
 #include "ros/ros.h"

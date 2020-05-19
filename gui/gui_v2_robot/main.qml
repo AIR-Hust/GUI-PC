@@ -20,8 +20,8 @@ ApplicationWindow {
         id: speech
     }
 
-//    signal send()
-//    onSend: backend.goal="a"
+    signal send()
+    onSend: backend.goal="a"
 
     AnimatedImage {
         id: image1
@@ -45,9 +45,11 @@ ApplicationWindow {
                 {
                     speech.speech_recog = "1"
                 }
-                if (speech.text == "th\u1EDDi ti\u1EBFt")
-                {
+                if (speech.text == "th\u1EDDi ti\u1EBFt"){
                     loader.source = "check_weather.qml"
+                }
+                else if(speech.text == "lấy nước"){
+
                 }
             }
         }
@@ -94,26 +96,27 @@ ApplicationWindow {
 //            height: 119
 //            onClicked: loader.source = "picture_v2.qml"
 //        }
-
-//        MouseArea {
-//            id: mouseArea_start
-//            x: 439
-//            y: 234
-//            width: 146
-//            height: 129
-
-//            //onClicked: loader.source = "going_v2.qml"
-
-//            onClicked:
-//            {
-
-//                backend.goal = "a"
-//                loader.source = "going_v2.qml"
-
-//            }}
-//        Component.onCompleted:
-//            mouseArea_start.clicked.connect(send)
 */
+
+        MouseArea {
+            id: mouseArea_start
+            x: 439
+            y: 234
+            width: 146
+            height: 129
+
+            //onClicked: loader.source = "going_v2.qml"
+
+            onClicked:
+            {
+
+                backend.goal = "a"
+                loader.source = "going_v2.qml"
+
+            }}
+        Component.onCompleted:
+            mouseArea_start.clicked.connect(send)
+
         MouseArea {
             id: mouseArea_help
             x: 960
