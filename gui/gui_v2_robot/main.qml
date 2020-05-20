@@ -21,7 +21,7 @@ ApplicationWindow {
     }
 
     signal send()
-    onSend: backend.goal="a"
+//    onSend: backend.goal="a"
 
     AnimatedImage {
         id: image1
@@ -111,9 +111,8 @@ ApplicationWindow {
 
             onClicked:
             {
-
                 backend.goal = "a"
-                loader.source = "going_v2.qml"
+//                loader.source = "going_v2.qml"
 
             }}
         Component.onCompleted:
@@ -187,27 +186,29 @@ ApplicationWindow {
 //            y: 287
 //            text: qsTr("about")
 //        }
-
-//        MouseArea {s
-//            id: button3
-//            x: 918
-//            y: 558
-////            text: qsTr("weather")
-//            onClicked: {
-//                loader.source = "check_weather.qml"
-//            }
-//        }
-
-//        Button {
-//            id: button4
-//            x: 500
-//            y: 200
-//            text: qsTr("speech_to_text")
-//            onClicked: {
-//                loader.source = "speech.qml"
-//            }
-//        }
 */
+        Button {
+            id: button3
+            x: 918
+            y: 558
+            text: qsTr("stop")
+            onClicked: {
+//                loader.source = "check_weather.qml"
+                backend.goal = "c"
+            }
+        }
+
+        Button {
+            id: button4
+            x: 500
+            y: 200
+            text: qsTr("speech_to_text")
+            onClicked: {
+                backend.goal = "b"
+//                loader.source = "speech.qml"
+            }
+        }
+
     }
 
     Rectangle {
