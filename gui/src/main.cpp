@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     QDir dir;
     string current_dir = dir.homePath().toUtf8().constData();
-    current_dir += "/catkin_ws/src/GUI-robot/gui/gui_v2_robot/main.qml";
+    current_dir += "/catkin_ws/src/GUI-PC/gui/gui_v2_robot/main.qml";
     QString cr_dir = QString::fromStdString(current_dir);
     ros::init(argc, argv, "node_name");
 
