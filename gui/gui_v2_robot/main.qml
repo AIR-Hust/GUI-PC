@@ -20,7 +20,7 @@ ApplicationWindow {
         id: speech
     }
 
-//    signal send()
+    signal send()
 //    onSend: backend.goal="a"
 
     AnimatedImage {
@@ -36,7 +36,8 @@ ApplicationWindow {
             repeat: true
             running: true
             onTriggered: {
-                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+//                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+                time.text = speech.text
                 if (speech.speech_recog == "1")
                 {
                     speech.speech_recog = "0";
@@ -45,9 +46,11 @@ ApplicationWindow {
                 {
                     speech.speech_recog = "1"
                 }
-                if (speech.text == "th\u1EDDi ti\u1EBFt")
-                {
+                if (speech.text == "thời tiết"){
                     loader.source = "check_weather.qml"
+                }
+                else if(speech.text == "lấy nước"){
+
                 }
             }
         }
@@ -56,6 +59,7 @@ ApplicationWindow {
             x: 900
             y: 0
             color: "#bf2929"
+//            text: speech.text
             //anchors.centerIn: parent
         }
 
@@ -94,32 +98,35 @@ ApplicationWindow {
 //            height: 119
 //            onClicked: loader.source = "picture_v2.qml"
 //        }
+*/
 
-//        MouseArea {
-//            id: mouseArea_start
-//            x: 439
-//            y: 234
-//            width: 146
-//            height: 129
+        MouseArea {
+            id: mouseArea_start
+            x: 439
+            y: 234
+            width: 146
+            height: 129
 
-//            //onClicked: loader.source = "going_v2.qml"
+            //onClicked: loader.source = "going_v2.qml"
 
-//            onClicked:
-//            {
-
-//                backend.goal = "a"
+            onClicked:
+            {
+                backend.goal = "a"
 //                loader.source = "going_v2.qml"
 
-//            }}
-//        Component.onCompleted:
-//            mouseArea_start.clicked.connect(send)
-*/
+            }}
+        Component.onCompleted:
+            mouseArea_start.clicked.connect(send)
+
         MouseArea {
             id: mouseArea_help
             x: 960
             y: 0
             width: 64
             height: 70
+            onClicked: {
+
+            }
         }
 
         MouseArea {
@@ -164,45 +171,46 @@ ApplicationWindow {
         anchors.leftMargin: 0
         anchors.topMargin: -7
         anchors.fill: parent
-/*
-//        Button {
-//            id: button1
-//            x: 14
-//            y: 139
-//            text: qsTr("map")
-//            onClicked:{
-//                Qt.quit()
 
-//            }
-//        }
+        Button {
+            id: button1
+            x: 918
+            y: 425
+            text: qsTr("rviz")
+            onClicked:{
+                backend.goal = "rviz"
+            }
+        }
 
-//        Button {
-//            id: button2
-//            x: 14
-//            y: 287
-//            text: qsTr("about")
-//        }
+        Button {
+            id: button2
+            x: 918
+            y: 465
+            text: qsTr("about")
+        }
 
-//        MouseArea {s
-//            id: button3
-//            x: 918
-//            y: 558
-////            text: qsTr("weather")
-//            onClicked: {
-//                loader.source = "check_weather.qml"
-//            }
-//        }
+        Button {
+            id: button3
+            x: 918
+            y: 558
+            text: qsTr("weather")
+            onClicked: {
+                loader.source = "check_weather.qml"
+                backend.goal = "weather"
+            }
+        }
 
-//        Button {
-//            id: button4
-//            x: 500
-//            y: 200
-//            text: qsTr("speech_to_text")
-//            onClicked: {
+        Button {
+            id: button4
+            x: 918
+            y: 512
+            text: qsTr("stop")
+            onClicked: {
+                backend.goal = "stop"
 //                loader.source = "speech.qml"
-//            }
-//        }
-*/
+            }
+        }
+
     }
 
     Rectangle {

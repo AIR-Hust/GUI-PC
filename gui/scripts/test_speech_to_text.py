@@ -11,7 +11,7 @@ if __name__ == "__main__":
     
 
     text = SpeechRecognitionCandidates() 
-    text.transcript.append("Ab")
+    text.transcript.append("th\u1EDDi ti\u1EBFt")
     text.confidence.append(1)
 
     rospy.init_node("fake_speech")
