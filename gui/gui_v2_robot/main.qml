@@ -124,6 +124,9 @@ ApplicationWindow {
             y: 0
             width: 64
             height: 70
+            onClicked: {
+
+            }
         }
 
         MouseArea {
@@ -168,44 +171,43 @@ ApplicationWindow {
         anchors.leftMargin: 0
         anchors.topMargin: -7
         anchors.fill: parent
-/*
-//        Button {
-//            id: button1
-//            x: 14
-//            y: 139
-//            text: qsTr("map")
-//            onClicked:{
-//                Qt.quit()
 
-//            }
-//        }
+        Button {
+            id: button1
+            x: 918
+            y: 425
+            text: qsTr("rviz")
+            onClicked:{
+                backend.goal = "rviz"
+            }
+        }
 
-//        Button {
-//            id: button2
-//            x: 14
-//            y: 287
-//            text: qsTr("about")
-//        }
-*/
+        Button {
+            id: button2
+            x: 918
+            y: 465
+            text: qsTr("about")
+        }
+
         Button {
             id: button3
             x: 918
             y: 558
-            text: qsTr("stop")
+            text: qsTr("weather")
             onClicked: {
-//                loader.source = "check_weather.qml"
-                backend.goal = "c"
+                loader.source = "check_weather.qml"
+                backend.goal = "weather"
             }
         }
 
         Button {
             id: button4
-            x: 500
-            y: 200
-            text: qsTr("speech_to_text")
+            x: 918
+            y: 512
+            text: qsTr("stop")
             onClicked: {
-                backend.goal = "b"
-                loader.source = "speech.qml"
+                backend.goal = "stop"
+//                loader.source = "speech.qml"
             }
         }
 

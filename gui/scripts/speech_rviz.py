@@ -22,17 +22,22 @@ def callback(data):
 
     launch_flag = True
     print(data.data)
-    if data.data == "a":
+    if data.data == "rviz":
         print('345')
         package = 'rviz'
         executable = 'rviz'
-    elif data.data == "c":
+    elif data.data == "stop":
         print('34')
         package = 'rviz'
         executable = 'rviz'
         stop = True
         launch_flag = False
         process.stop()
+    elif data.data == "weather":
+        print('34')
+        package = 'gui'
+        executable = 'ros_weather.py'
+        stop = True
     elif data.data == "b":
         print('34')
         package = 'cmc_robot_daily_work'
@@ -40,9 +45,9 @@ def callback(data):
         stop = True
         # launch_flag = False
         # launch.stop()
-    else:
-        package = 'cmc_robot_daily_work'
-        executable = 'ros_weather.py'
+    # else:
+    #     package = 'cmc_robot_daily_work'
+    #     executable = 'ros_weather.py'
     # node = roslaunch.core.Node(package, executable)
     launch.stop()
     # process.stop()
