@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Respeaker_ros-->
+    <include file="$(find respeaker_ros)/launch/vn-respeaker.launch"/>
+
+  <!--Weather-->
+    <node pkg="gui" name="get_weather" type="ros_weather.py" />
+  <!-- GUI -->
+    <node pkg="gui" name="node_name" type="node_name"/>
+  <!-- button command -->
+    <node pkg="gui" name="button_command" type="speech_rviz.py"/>
+  <!--Dash go-->
+    <!--include file="$(find dashgo_nav)/launch/gmapping_demo.launch"/-->
+  
+</launch>

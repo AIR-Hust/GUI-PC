@@ -7,6 +7,7 @@ import speech.recognition 1.0
 ApplicationWindow {
     //id:root
     visible: true
+    visibility: "FullScreen"
     width: 1024
     height: 600
 
@@ -48,18 +49,25 @@ ApplicationWindow {
                 }
                 if (speech.text == "thời tiết"){
                     loader.source = "check_weather.qml"
+                    backend.goal = "weather"
                 }
-                else if(speech.text == "lấy nước"){
-
+                else if(speech.text == "di chuyển"){
+                    backend.goal = "rviz"
+                }
+                else if(speech.text == "đây là gì"){
+                    backend.goal = "darknet_ros"
+                }
+                else if(speech.text == "thoát"){
+                    backend.goal = "stop"
                 }
             }
         }
         Text{
             id:time
-            x: 900
+            x: 800
             y: 0
             color: "#bf2929"
-//            text: speech.text
+            text: speech.text
             //anchors.centerIn: parent
         }
 
@@ -100,21 +108,21 @@ ApplicationWindow {
 //        }
 */
 
-        MouseArea {
-            id: mouseArea_start
-            x: 439
-            y: 234
-            width: 146
-            height: 129
+//        MouseArea {
+//            id: mouseArea_start
+//            x: 439
+//            y: 234
+//            width: 146
+//            height: 129
 
-            //onClicked: loader.source = "going_v2.qml"
+//            //onClicked: loader.source = "going_v2.qml"
 
-            onClicked:
-            {
-                backend.goal = "a"
-//                loader.source = "going_v2.qml"
+//            onClicked:
+//            {
+//                backend.goal = "a"
+////                loader.source = "going_v2.qml"
 
-            }}
+//            }}
         Component.onCompleted:
             mouseArea_start.clicked.connect(send)
 
@@ -124,6 +132,7 @@ ApplicationWindow {
             y: 0
             width: 64
             height: 70
+            hoverEnabled: false
             onClicked: {
 
             }
@@ -207,8 +216,18 @@ ApplicationWindow {
             text: qsTr("stop")
             onClicked: {
                 backend.goal = "stop"
-//                loader.source = "speech.qml"
+                //                loader.source = "speech.qml"
             }
+        }
+
+        Image {
+            id: image2
+            x: 940
+            y: 8
+            width: 106
+            height: 64
+            z: 1
+            source: "picture/pause-08.png"
         }
 
     }
