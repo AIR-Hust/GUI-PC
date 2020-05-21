@@ -46,7 +46,7 @@ ApplicationWindow {
                 {
                     speech.speech_recog = "1"
                 }
-                if (speech.text == "th\u1EDDi ti\u1EBFt"){
+                if (speech.text == "thời tiết"){
                     loader.source = "check_weather.qml"
                 }
                 else if(speech.text == "lấy nước"){
@@ -205,7 +205,7 @@ ApplicationWindow {
             text: qsTr("speech_to_text")
             onClicked: {
                 backend.goal = "b"
-//                loader.source = "speech.qml"
+                loader.source = "speech.qml"
             }
         }
 

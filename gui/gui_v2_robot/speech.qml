@@ -30,7 +30,7 @@ ApplicationWindow {
                 speech.speech_recog = "1"
             }
 
-//            text_s = speech.text;
+            text_s = speech.text;
         }
     }
 
