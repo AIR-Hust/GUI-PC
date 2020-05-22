@@ -40,7 +40,6 @@ find_package(catkin REQUIRED COMPONENTS
   genmsg
   sensor_msgs
   cv_bridge
-  opencv2
 )
 
 #qt5_add_resources(RESOURCES qml.qrc)
@@ -144,7 +143,7 @@ catkin_package(
 #  CATKIN_DEPENDS roscpp std_msgs
 #  DEPENDS system_lib
     LIBRARIES gui
-    CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs cv_bridge opencv2 
+    CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs cv_bridge 
 )
 
 ###########

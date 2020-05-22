@@ -34,14 +34,7 @@ ApplicationWindow {
         height: 600
         source: "picture/home_v2_fix.png"
 
-        Timer{
-            interval: 500
-            repeat: true
-            running: true
-            onTriggered: {
-                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
-            }
-        }
+
         Text{
             id:time
             x: 900
@@ -202,7 +195,47 @@ ApplicationWindow {
         y: 202
         text: qsTr("detection")
         onClicked:{
+            backend.goal = 'c'
+        }
+    }
 
+    Button {
+        id: button2
+        x: 46
+        y: 274
+        text: qsTr("turn_off_detection")
+        onClicked: {
+            backend.goal = 'b'
+        }
+    }
+
+    Button {
+        id: button3
+        x: 46
+        y: 153
+        text: qsTr("turn_on_cam")
+        onClicked: {
+            backend.goal = 'turn on camera'
+        }
+    }
+
+    Button {
+        id: button4
+        x: 46
+        y: 104
+        text: qsTr("turn_off_cam")
+        onClicked: {
+            backend.goal = 'turn off camera'
+        }
+    }
+
+    Button {
+        id: button5
+        x: 46
+        y: 330
+        text: qsTr("turn_on_darknet")
+        onClicked: {
+            backend.goal = 'turn on darknet'
         }
     }
 

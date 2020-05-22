@@ -1,0 +1,1 @@
+sudo chmod +x [ten_file]: chuyen sang che do vua doc cua ghi
