@@ -2,7 +2,8 @@ TEMPLATE = app
 
 QT += qml quick widgets gui core network
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    simplemenu.cpp
 
 RESOURCES += qml.qrc
 
@@ -13,5 +14,6 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    ../src/weather.h
+    ../src/weather.h \
+    simplemenu.h
 

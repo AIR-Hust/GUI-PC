@@ -52,13 +52,6 @@ Item {
                 weather.weather_status = "1";
             }
 
-/*
-            if (weather.weather_status == "1")
-                weather.weather_status = "0";
-            if (weather.weather_status == "0")
-                weather.weather_status = "1";
-*/
-
             // cập nhật thời tiết vào các biến trong qml
             humidity = weather.humidity;
             temperature = weather.temperature;

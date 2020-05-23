@@ -149,6 +149,31 @@ ApplicationWindow {
             }
         }
 
+        Button{
+            id: openMenu
+            text:"Menu"
+            onClicked: {
+                menu.popup()
+            }
+        }
+
+        Menu{
+            id:menu
+
+            MenuItem{
+                text:"check the weather"
+                onTriggered: {
+                    loader.source = "check_weather.qml"
+                }
+            }
+            MenuItem{
+                text:"Map"
+            }
+            MenuItem{
+                text:"About"
+            }
+        }
+
         MouseArea {
             id: mouseArea_VN
             x: 527
@@ -161,6 +186,56 @@ ApplicationWindow {
 //            anchors.fill: root
 //            onClicked: loader.source="menu.qml"
         //}
+
+        Button{
+            id: button1
+            x: 46
+            y: 202
+            text: qsTr("detection")
+            onClicked:{
+                 backend.goal = 'c'
+            }
+        }
+
+        Button {
+                id: button2
+                x: 46
+                y: 274
+                text: qsTr("turn_off_detection")
+                onClicked: {
+                    backend.goal = 'b'
+                }
+            }
+
+        Button {
+                id: button3
+                x: 46
+                y: 153
+                text: qsTr("turn_on_cam")
+                onClicked: {
+                    backend.goal = 'turn on camera'
+                }
+            }
+
+        Button {
+                id: button4
+                x: 46
+                y: 104
+                text: qsTr("turn_off_cam")
+                onClicked: {
+                    backend.goal = 'turn off camera'
+                }
+            }
+
+        Button {
+                id: button5
+                x: 46
+                y: 330
+                text: qsTr("turn_on_darknet")
+                onClicked: {
+                    backend.goal = 'turn on darknet'
+                }
+            }
 
         MouseArea {
             id: mouseArea_EN
@@ -182,7 +257,7 @@ ApplicationWindow {
         anchors.fill: parent
 
         Button {
-            id: button1
+            id: button10
             x: 918
             y: 425
             text: qsTr("rviz")
@@ -192,14 +267,14 @@ ApplicationWindow {
         }
 
         Button {
-            id: button2
+            id: button20
             x: 918
             y: 465
             text: qsTr("about")
         }
 
         Button {
-            id: button3
+            id: button30
             x: 918
             y: 558
             text: qsTr("weather")
@@ -210,7 +285,7 @@ ApplicationWindow {
         }
 
         Button {
-            id: button4
+            id: button40
             x: 918
             y: 512
             text: qsTr("stop")
