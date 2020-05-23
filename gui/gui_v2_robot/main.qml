@@ -7,7 +7,7 @@ import speech.recognition 1.0
 ApplicationWindow {
     //id:root
     visible: true
-    visibility: "FullScreen"
+//    visibility: "FullScreen"
     width: 1024
     height: 600
 
