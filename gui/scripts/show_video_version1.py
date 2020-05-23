@@ -2,6 +2,9 @@
 
 import roslaunch
 import rospy
+import os
+
+from os.path import expanduser
 
 from std_msgs.msg import String
 
@@ -45,9 +48,12 @@ def callback(data):
         process.stop()
     elif data.data == "turn on camera":
         print('turn on camera')
-        option_flag = True
-        package = 'usb_cam'
-        executable = 'usb_cam_node'
+        # option_flag = True
+        darknet_flag = True
+        launch_file = [home+"/catkin_ws/src/usb_cam/launch/usb_cam-test.launch",home+"/catkin_ws/src/darknet_ros/darknet_ros/launch/darknet_ros.launch"]
+        home
+        # package = 'usb_cam'
+        # executable = 'usb_cam_node'
     #elif data.data == "turn off camera":
         #print("turn off camera")
         #package = 'usb_cam'
@@ -58,7 +64,7 @@ def callback(data):
     elif data.data == "turn on darknet":
         print("Start darknet")
         darknet_flag = True
-        launch_file = ["/home/doanhdz/catkin_ws/src/usb_cam/launch/usb_cam-test.launch","/home/doanhdz/catkin_ws/src/darknet_ros/darknet_ros/launch/darknet_ros.launch"]
+        launch_file = [home+"/catkin_ws/src/usb_cam/launch/usb_cam-test.launch",home+"/catkin_ws/src/darknet_ros/darknet_ros/launch/darknet_ros.launch"]
     elif data.data == "turn off camera":
         print("turn off camera")
         darknet_flag = False
@@ -75,6 +81,7 @@ def command():
 
     global option_flag, package, node, executable, stop, launch, process ,launch_file, darknet_flag,launch1
     stop = False
+
 
     rospy.init_node('behavior')
     input_text = rospy.Subscriber('/receive_goal', String, callback)
@@ -139,6 +146,7 @@ def command():
 
 
 if __name__ == '__main__':
+    home = expanduser("~")
     try:
         command()
     except rospy.ROSInterruptException:
