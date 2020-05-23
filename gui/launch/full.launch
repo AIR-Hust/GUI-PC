@@ -4,7 +4,7 @@
     <include file="$(find respeaker_ros)/launch/vn-respeaker.launch"/>
 
   <!--Weather-->
-    <node pkg="gui" name="get_weather" type="ros_weather.py" />
+    <!--node pkg="gui" name="get_weather" type="ros_weather.py" /-->
   <!-- GUI -->
     <node pkg="gui" name="node_name" type="node_name"/>
   <!-- button command -->
