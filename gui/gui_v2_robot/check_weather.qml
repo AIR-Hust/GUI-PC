@@ -19,7 +19,7 @@ Item {
     property int very_good: 0
     property real trungbinh: 0
     property real trungbinh1: 0
-    property double time_wait: 2000
+    property double time_wait: 20000
     property double time_update: 3000
     property string link_gif
     property string  temperature
@@ -103,7 +103,7 @@ Item {
     Timer {
         id: time_rate
         interval: time_wait
-        running: false
+        running: true
         repeat: false
         onTriggered: {
             state_rate = false;
