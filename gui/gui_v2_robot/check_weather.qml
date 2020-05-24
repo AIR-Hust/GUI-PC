@@ -19,7 +19,7 @@ Item {
     property int very_good: 0
     property real trungbinh: 0
     property real trungbinh1: 0
-    property double time_wait: 20000
+    property double time_wait: 10000
     property double time_update: 3000
     property string link_gif
     property string  temperature
@@ -398,6 +398,7 @@ Item {
             }
         }
 
+        /*
         Image {
             id: image_close
             x: 250
@@ -418,11 +419,7 @@ Item {
                 }
             }
         }
-
-        Image {
-            id: back_icon
-            source: "picture/home_going.PNG"
-        }
+        */
         MouseArea {
             id: back_button
             x: 210

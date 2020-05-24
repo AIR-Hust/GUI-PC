@@ -3,11 +3,13 @@ import QtQuick.Controls 1.2
 import io.qt.examples.backend 1.0
 import GUI.APP.ROBOTICS 1.0
 import speech.recognition 1.0
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 1.4
 
 ApplicationWindow {
     //id:root
     visible: true
-//    visibility: "FullScreen"
+    //    visibility: "FullScreen"
     width: 1024
     height: 600
 
@@ -22,7 +24,7 @@ ApplicationWindow {
     }
 
     signal send()
-//    onSend: backend.goal="a"
+    //    onSend: backend.goal="a"
 
     AnimatedImage {
         id: image1
@@ -30,6 +32,7 @@ ApplicationWindow {
         y: 0
         width: 1024
         height: 600
+        scale: 1.3
         source: "picture/emotion_face.gif"
 
         Timer{
@@ -37,7 +40,7 @@ ApplicationWindow {
             repeat: true
             running: true
             onTriggered: {
-//                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
+                //                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
                 time.text = speech.text
                 if (speech.speech_recog == "1")
                 {
@@ -64,14 +67,16 @@ ApplicationWindow {
         }
         Text{
             id:time
-            x: 800
-            y: 0
+            x: 423
+            y: 78
             color: "#bf2929"
             text: speech.text
+            font.pointSize: 20
             //anchors.centerIn: parent
         }
 
-/*
+
+        /*
 //        MouseArea {
 //            id: mouseArea_home
 //            x: 180
@@ -106,7 +111,6 @@ ApplicationWindow {
 //            height: 119
 //            onClicked: loader.source = "picture_v2.qml"
 //        }
-*/
 
 //        MouseArea {
 //            id: mouseArea_start
@@ -123,40 +127,44 @@ ApplicationWindow {
 ////                loader.source = "going_v2.qml"
 
 //            }}
+*/
         Component.onCompleted:
             mouseArea_start.clicked.connect(send)
+        /*
+//        MouseArea {
+//            id: mouseArea_help
+//            x: 960
+//            y: 0
+//            width: 64
+//            height: 70
+//            hoverEnabled: false
+//            onClicked: {
 
-        MouseArea {
-            id: mouseArea_help
-            x: 960
-            y: 0
-            width: 64
-            height: 70
-            hoverEnabled: false
-            onClicked: {
+//            }
+//        }
 
-            }
-        }
+//        MouseArea {
+//            id: mouseArea_menu
+//            x: 0
+//            y: 0
+//            width: 69
+//            height: 70
+//            onClicked: {
 
-        MouseArea {
-            id: mouseArea_menu
-            x: 0
-            y: 0
-            width: 69
-            height: 70
-            onClicked: {
-
-            }
-        }
-
+//            }
+//        }
+*/
+/*
         Button{
             id: openMenu
+            x: 152
+            y: 153
             text:"Menu"
             onClicked: {
                 menu.popup()
             }
         }
-
+*/
         Menu{
             id:menu
 
@@ -164,68 +172,110 @@ ApplicationWindow {
                 text:"check the weather"
                 onTriggered: {
                     loader.source = "check_weather.qml"
+                    backend.goal = "weather"
                 }
             }
             MenuItem{
-                text:"Map"
+                text:"Stop"
+                onTriggered: {
+                    backend.goal = "stop"
+                }
             }
             MenuItem{
-                text:"About"
+                text:"Rviz"
+                onTriggered: {
+                    backend.goal = "rviz"
+                }
             }
-        }
-
-        MouseArea {
-            id: mouseArea_VN
-            x: 527
-            y: 0
-            width: 69
-            height: 65
-        }
-//        MouseArea{
-//            id:load_menu
-//            anchors.fill: root
-//            onClicked: loader.source="menu.qml"
-        //}
-
-        Button{
-            id: button1
-            x: 46
-            y: 202
-            text: qsTr("detection")
-            onClicked:{
-                 backend.goal = 'c'
+            MenuItem{
+                text:"Darknet_ros"
+                onTriggered: {
+                    backend.goal = 'turn on darknet'
+                }
             }
-        }
-
-        Button {
-                id: button2
-                x: 46
-                y: 274
-                text: qsTr("turn_off_detection")
-                onClicked: {
+            MenuItem{
+                text:"Turn on camera"
+                onTriggered: {
+                    backend.goal = 'turn on camera'
+                }
+            }
+            MenuItem{
+                text:"Turn off camera"
+                onTriggered: {
+                    backend.goal = 'turn off camera'
+                }
+            }
+            MenuItem{
+                text:"Detection"
+                onTriggered: {
+                    backend.goal = 'c'
+                }
+            }
+            MenuItem{
+                text:"Turn off detection"
+                onTriggered: {
                     backend.goal = 'b'
                 }
             }
 
-        Button {
-                id: button3
-                x: 46
-                y: 153
-                text: qsTr("turn_on_cam")
-                onClicked: {
-                    backend.goal = 'turn on camera'
+            MenuItem{
+                text:"About"
+            }
+            MenuItem{
+                text:"Quit"
+                onTriggered: {
+//                    main_window.close();
+                    Qt.quit();
                 }
             }
+        }
 
-        Button {
-                id: button4
-                x: 46
-                y: 104
-                text: qsTr("turn_off_cam")
-                onClicked: {
-                    backend.goal = 'turn off camera'
-                }
-            }
+        /*
+////        MouseArea{
+////            id:load_menu
+////            anchors.fill: root
+////            onClicked: loader.source="menu.qml"
+//        //}
+
+//        Button{
+//            id: button1
+//            x: 46
+//            y: 202
+//            text: qsTr("detection")
+//            onClicked:{
+//                 backend.goal = 'c'
+//            }
+//        }
+
+//        Button {
+//                id: button2
+//                x: 46
+//                y: 274
+//                text: qsTr("turn_off_detection")
+//                onClicked: {
+//                    backend.goal = 'b'
+//                }
+//            }
+
+////        Button {
+//                id: button3
+//                x: 46
+//                y: 153
+//                text: qsTr("turn_on_cam")
+//                onClicked: {
+//                    backend.goal = 'turn on camera'
+//                }
+//            }
+
+//        Button {
+//                id: button4
+//                x: 46
+//                y: 104
+//                text: qsTr("turn_off_cam")
+//                onClicked: {
+//                    backend.goal = 'turn off camera'
+//                }
+//            }
 
         Button {
                 id: button5
@@ -237,15 +287,35 @@ ApplicationWindow {
                 }
             }
 
-        MouseArea {
-            id: mouseArea_EN
-            x: 418
-            y: 0
-            width: 74
-            height: 65
-        }
-
+//        MouseArea {
+//            id: mouseArea_EN
+//            x: 418
+//            y: 0
+//            width: 74
+//            height: 65
+//        }
+*/
     }
+    Image {
+        id: image2
+        x: -17
+        y: -24
+        width: 100
+        height: 100
+        scale: 0.5
+        source: "picture/menu_icon.png"
+        MouseArea {
+            id: mouseArea1
+            x: 8
+            y: 0
+            width: 50
+            height: 58
+            onClicked: {
+                menu.popup()
+            }
+        }
+    }
+
     Loader{
         id: loader
         x: 0
@@ -256,55 +326,47 @@ ApplicationWindow {
         anchors.topMargin: -7
         anchors.fill: parent
 
-        Button {
-            id: button10
-            x: 918
-            y: 425
-            text: qsTr("rviz")
-            onClicked:{
-                backend.goal = "rviz"
-            }
-        }
 
-        Button {
-            id: button20
-            x: 918
-            y: 465
-            text: qsTr("about")
-        }
+        /*
+//        Button {
+//            id: button10
+//            x: 918
+//            y: 425
+//            text: qsTr("rviz")
+//            onClicked:{
+//                backend.goal = "rviz"
+//            }
+//        }
 
-        Button {
-            id: button30
-            x: 918
-            y: 558
-            text: qsTr("weather")
-            onClicked: {
-                loader.source = "check_weather.qml"
-                backend.goal = "weather"
-            }
-        }
+//        Button {
+//            id: button20
+//            x: 918
+//            y: 465
+//            text: qsTr("about")
+//        }
 
-        Button {
-            id: button40
-            x: 918
-            y: 512
-            text: qsTr("stop")
-            onClicked: {
-                backend.goal = "stop"
-                //                loader.source = "speech.qml"
-            }
-        }
+//        Button {
+//            id: button30
+//            x: 918
+//            y: 558
+//            text: qsTr("weather")
+//            onClicked: {
+//                loader.source = "check_weather.qml"
+//                backend.goal = "weather"
+//            }
+//        }
 
-        Image {
-            id: image2
-            x: 940
-            y: 8
-            width: 106
-            height: 64
-            z: 1
-            source: "picture/pause-08.png"
-        }
-
+//        Button {
+//            id: button40
+//            x: 918
+//            y: 512
+//            text: qsTr("stop")
+//            onClicked: {
+//                backend.goal = "stop"
+//                //                loader.source = "speech.qml"
+//            }
+//        }
+*/
     }
 
     Rectangle {
@@ -315,6 +377,7 @@ ApplicationWindow {
         height: 200
         color: "#ffffff"
     }
+
 
 }
 
