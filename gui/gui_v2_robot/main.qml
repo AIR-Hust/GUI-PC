@@ -303,7 +303,7 @@ ApplicationWindow {
         width: 100
         height: 100
         scale: 0.5
-        source: "picture/menu_icon.png"
+        source: "picture/menu-bar-icon.png"
         MouseArea {
             id: mouseArea1
             x: 8
