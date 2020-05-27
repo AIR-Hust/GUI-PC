@@ -41,7 +41,7 @@ ApplicationWindow {
             running: true
             onTriggered: {
                 //                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
-                time.text = speech.text
+//                time.text = speech.text
                 if (speech.speech_recog == "1")
                 {
                     speech.speech_recog = "0";
@@ -193,12 +193,13 @@ ApplicationWindow {
                     backend.goal = 'turn on darknet'
                 }
             }
+            /*
             MenuItem{
                 text:"Turn on camera"
                 onTriggered: {
                     backend.goal = 'turn on camera'
                 }
-            }
+            }*/
             MenuItem{
                 text:"Turn off camera"
                 onTriggered: {

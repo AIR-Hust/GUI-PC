@@ -1,7 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
 import GUI.APP.ROBOTICS 1.0
-import speech.recognition 1.0
+//import speech.recognition 1.0
 
 
 Item {
@@ -17,10 +17,11 @@ Item {
     property int ok: 0
     property int good: 0
     property int very_good: 0
+
     property real trungbinh: 0
     property real trungbinh1: 0
     property double time_wait: 10000
-    property double time_update: 3000
+    property double time_update: 1000
     property string link_gif
     property string  temperature
     property string  humidity
@@ -32,9 +33,9 @@ Item {
 
     }
 
-    Speech {
-        id: speech
-    }
+//    Speech {
+//        id: speech
+//    }
 
 
     Timer {
@@ -92,7 +93,7 @@ Item {
 
     }
 
-
+/*
     Timer {
         id: time_rate
         interval: time_wait
@@ -101,9 +102,11 @@ Item {
         onTriggered: {
             state_rate = false;
             back_ground = false;
-            loader.source = "main.qml"
+//            loader.source = "main.qml"
+            main_window.close();
         }
     }
+*/
 
     Window {
         id: window_rate

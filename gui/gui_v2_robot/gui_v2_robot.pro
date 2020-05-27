@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick widgets gui core network
 
 SOURCES += main.cpp \
-    simplemenu.cpp
+    simplemenu.cpp \
+    ../src/weather.cpp
 
 RESOURCES += qml.qrc
 

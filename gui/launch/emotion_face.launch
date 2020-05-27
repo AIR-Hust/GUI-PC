@@ -3,7 +3,8 @@
   <!-- Respeaker_ros-->
     <include file="$(find respeaker_ros)/launch/vn-respeaker.launch"/>
 
-  <!-- Transform -->
+  <!-- GUI -->
     <node pkg="gui" name="get_weather" type="ros_weather.py" />
     <node pkg="gui" name="node_name" type="node_name"/>
+    <node pkg="gui" name="launch" type="launch.py" />
 </launch>

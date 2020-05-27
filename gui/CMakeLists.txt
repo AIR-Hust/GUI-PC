@@ -157,6 +157,7 @@ catkin_package(
 include_directories(
   include
   src 
+  gui_v2_robot
   ${catkin_INCLUDE_DIRS}
   /usr/include
   /usr/include/x86_64-linux-gnu/qt5
@@ -201,6 +202,10 @@ add_executable(node_name ${RESOURCES} src/main.cpp src/backend.h src/backend.cpp
 #add_executable(node_name src/main.cpp ${HEADER_FILES})
 target_include_directories(node_name PRIVATE gui)
 
+add_executable(weather ${RESOURCES} gui_v2_robot/main.cpp src/backend.h src/backend.cpp src/weather.h src/weather.cpp)
+
+target_include_directories(weather PRIVATE gui)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -220,6 +225,12 @@ target_link_libraries(node_name Qt5::Core)
 target_link_libraries(node_name Qt5::Widgets)
 target_link_libraries(node_name Qt5::Qml)
 target_link_libraries(node_name Qt5::Gui)
+
+target_link_libraries(weather ${catkin_LIBRARIES} )
+target_link_libraries(weather Qt5::Core)
+target_link_libraries(weather Qt5::Widgets)
+target_link_libraries(weather Qt5::Qml)
+target_link_libraries(weather Qt5::Gui)
 
 
 
