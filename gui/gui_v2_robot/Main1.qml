@@ -35,13 +35,12 @@ Item {
             onTriggered: {
                 speech.text = "";
 //                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
-                /*
                 if (speech.speech_recog == "1"){
                     speech.speech_recog = "0";
                 }
                 else{
                     speech.speech_recog = "1";
-                }*/
+                }
                 if (speech.text == "thời tiết"){
                     loader.source = "check_weather.qml"
                     backend.goal = "weather"
