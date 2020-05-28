@@ -15,6 +15,8 @@ Item {
         id: speech
     }
 
+    property string command: ""
+
     signal send()
     //    onSend: backend.goal="a"
 
@@ -33,7 +35,8 @@ Item {
             repeat: true
             running: true
             onTriggered: {
-                speech.text = "a";
+//                speech.text = "";
+                command = speech.text;
 
 //                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
                 if (speech.speech_recog == "1"){
@@ -42,19 +45,33 @@ Item {
                 else{
                     speech.speech_recog = "1";
                 }
-                if (speech.text == "thời tiết"){
+//                if (speech.text == "thời tiết"){
+//                    loader.source = "check_weather.qml"
+//                    backend.goal = "weather"
+//                }
+//                else if(speech.text == "di chuyển"){
+//                    backend.goal = "rviz"
+//                }
+//                else if(speech.text == "đây là gì"){
+//                    backend.goal = "turn on darknet"
+//                }
+//                else if(speech.text == "thoát"){
+//                    backend.goal = "stop"
+//                }
+                if (command == "thời tiết"){
                     loader.source = "check_weather.qml"
                     backend.goal = "weather"
                 }
-                else if(speech.text == "di chuyển"){
+                else if(command == "di chuyển"){
                     backend.goal = "rviz"
                 }
-                else if(speech.text == "đây là gì"){
+                else if(command == "đây là gì"){
                     backend.goal = "turn on darknet"
                 }
-                else if(speech.text == "thoát"){
+                else if(command == "thoát"){
                     backend.goal = "stop"
                 }
+                command = "";
 
             }
         }
