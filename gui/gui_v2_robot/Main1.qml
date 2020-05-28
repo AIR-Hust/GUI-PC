@@ -33,7 +33,8 @@ Item {
             repeat: true
             running: true
             onTriggered: {
-                speech.text = "";
+                speech.text = "a";
+
 //                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
                 if (speech.speech_recog == "1"){
                     speech.speech_recog = "0";
