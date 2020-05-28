@@ -36,6 +36,7 @@ Item {
             running: true
             onTriggered: {
 //                speech.text = "";
+                time.text = speech.text;
                 command = speech.text;
 
 //                time.text=Qt.formatDateTime(new Date(),"dd::mm::ss ")
