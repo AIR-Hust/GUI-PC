@@ -21,10 +21,13 @@ def callback(data):
     
     print(data.data)
     if data.data == "rviz":
-        print('345')
-        option_flag = True
-        package = 'gui'
-        executable = 'show_video.py'
+        print('Start moving')
+        # option_flag = True
+        darknet_flag = True
+        # package = 'gui'
+        # executable = ''
+        # launch_file = [home+"/dashgo_ws/src/dashgo/dashgo_nav/launch/gmapping.launch"]
+        launch_file = [home+"/dashgo_ws/src/dashgo/dashgo_gazebo/launch/gmapping.launch"]
     elif data.data == "b":
         print('34')
         package = 'gui'
@@ -49,6 +52,7 @@ def callback(data):
         darknet_flag = False
         launch1.shutdown()
     elif data.data == "stop":
+    	darknet_flag = False
         launch1.shutdown()
         process.stop()
 

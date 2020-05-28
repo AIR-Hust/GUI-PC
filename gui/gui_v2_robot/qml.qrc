@@ -38,5 +38,6 @@
         <file>picture/good.png</file>
         <file>speech.qml</file>
         <file>picture/emotion_face.gif</file>
+        <file>Main1.qml</file>
     </qresource>
 </RCC>

@@ -5,7 +5,7 @@ import GUI.APP.ROBOTICS 1.0
 
 
 Item {
-    visible: true
+//    visible:
     width: 1024
     height: 600
 
@@ -17,11 +17,12 @@ Item {
     property int ok: 0
     property int good: 0
     property int very_good: 0
+    property int count: 0
 
     property real trungbinh: 0
     property real trungbinh1: 0
     property double time_wait: 10000
-    property double time_update: 1000
+    property double time_update: 100
     property string link_gif
     property string  temperature
     property string  humidity
@@ -30,12 +31,7 @@ Item {
 
     Weather {
         id: weather
-
     }
-
-//    Speech {
-//        id: speech
-//    }
 
 
     Timer {
@@ -44,6 +40,11 @@ Item {
         running: true
         repeat: true
         onTriggered: {
+            if (count > 20){
+                loader.source = "main.qml";
+            }
+
+            count = count+1; // Biến đếm số lần lặp
             // cập nhật thời tiết mỗi lần timer reset
             if (weather.weather_status == "1")
             {
@@ -89,24 +90,8 @@ Item {
                 link_gif = "picture/cloudy.png"; // Broken clouds
                 console.log(description);
         }
-
-
     }
 
-/*
-    Timer {
-        id: time_rate
-        interval: time_wait
-        running: true
-        repeat: false
-        onTriggered: {
-            state_rate = false;
-            back_ground = false;
-//            loader.source = "main.qml"
-            main_window.close();
-        }
-    }
-*/
 
     Window {
         id: window_rate
@@ -401,28 +386,6 @@ Item {
             }
         }
 
-        /*
-        Image {
-            id: image_close
-            x: 250
-            y: 0
-            width: 50
-            height: 50
-            source: "picture/Close-2-icon.png"
-
-            MouseArea {
-                id: mouseArea_close
-                x: 0
-                y: 0
-                width: 50
-                height: 50
-                onClicked:
-                {
-                    main_window.close();
-                }
-            }
-        }
-        */
         MouseArea {
             id: back_button
             x: 210
@@ -433,11 +396,5 @@ Item {
                 loader.source = "main.qml"
             }
         }
-
     }
-
-
-
-
-
 }
