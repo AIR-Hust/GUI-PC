@@ -40,7 +40,7 @@ Item {
         running: true
         repeat: true
         onTriggered: {
-            if (count > 10){
+            if (count > 8){
                 loader.source = "main.qml";
             }
 
