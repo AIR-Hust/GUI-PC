@@ -27,7 +27,8 @@ def callback(data):
         # package = 'gui'
         # executable = ''
         # launch_file = [home+"/dashgo_ws/src/dashgo/dashgo_nav/launch/gmapping.launch"]
-        launch_file = [home+"/dashgo_ws/src/dashgo/dashgo_gazebo/launch/gmapping.launch"]
+        # launch_file = [home+"/dashgo_ws/src/dashgo/dashgo_gazebo/launch/gmapping.launch"]
+        launch_file = [home+"/catkin_ws/src/dashgo/dashgo_nav/launch/gmapping.launch"]
     elif data.data == "b":
         print('34')
         package = 'gui'
